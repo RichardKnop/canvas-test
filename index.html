@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Canvas Test</title>
+	</head>
+	<body>
+		<canvas id="canvas" width="400" height="400"></canvas>
+		<script>
+var canvas = document.getElementById("canvas");
+if (canvas.getContext) {
+    var ctx = canvas.getContext("2d");
+    
+    ctx.fillStyle = "rgb(200, 0, 0)"; // red
+    ctx.fillRect(20, 20, 100, 50);
+    
+    ctx.fillStyle = "rgba(0, 0, 200, 0.5)"; // blue, 50% opacity
+    ctx.fillRect(60, 40, 70, 70);
+    
+    ctx.strokeStyle = "rgb(0, 200, 0)"; // green
+    ctx.strokeRect(20, 150, 50, 50);
+    
+    ctx.clearRect(45, 175, 26, 26);
+    
+    ctx.fillStyle = "rgb(200, 200, 200)"; // light grey
+    ctx.beginPath();
+    ctx.moveTo(20, 250);
+    ctx.lineTo(40, 270);
+    ctx.lineTo(20, 290);
+    ctx.fill();
+    
+    ctx.beginPath();
+    ctx.moveTo(20, 350);
+    ctx.lineTo(40, 330);
+    ctx.lineTo(60, 350);
+    ctx.lineTo(40, 370);
+    ctx.fill();
+    
+    // smiley
+    ctx.strokeStyle = "rgb(0, 0, 0)"; // black
+    ctx.beginPath();
+    ctx.arc(250, 80, 50, 0, Math.PI*2, true); // face
+    ctx.moveTo(235, 70);
+    ctx.arc(230, 70, 5, 0, Math.PI*2, true); // left eye
+    ctx.moveTo(275, 70);
+    ctx.arc(270, 70, 5, 0, Math.PI*2, true); // right eye
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(250, 85, 30, 0 + Math.PI * 1 / 4, Math.PI * 3 / 4, false); // mouth
+    ctx.stroke();
+} else {
+  // canvas unsupported   
+}
+		</script>
+	</body>
+</html>
